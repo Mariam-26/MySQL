@@ -355,6 +355,53 @@
             </div>
             <!-- fin row 5 -->
 
+            <!-- debut row 6 -->
+            <div class="row mt-4 ">
+                <h2 id="donneesPK_AI_pourID " class="text-dark p-4 ">6. Types de données PK AI pour ID</h2>
+                <!-- .col-4*3>h2{$/ Titre} -->
+
+                <!-- debut des 4 col -->
+                <div class="col-12 m-4 p-4 bg-light ">
+                    <h3>a) PK - Les identifiants - Primary Key et clef primaire</h2><br>
+                        <ul>
+                            <li>Les identifiants sont des champs un peu particuliers car ils ne décrivent pas le sujet. Ce sont des champs/colonnes systématiquement présents dans chaque table et ce en première position.</li><br>
+                            <li>Chaque table possède un champs identifiant, appellé <code>une clef primaire (PK) unique.</code></li><br>
+                            <li>Les identifiants sont uniques.</li><br>
+                            <li>Par exemple, nous pourrons appeler le champs <code>"id "</code> ou encore <code>"id_membre "</code> ou <code>"idMembre "</code> ou <code>"id_user "</code>.</li><br>
+                        </ul>
+                </div>
+
+                <div class="col-12 m-4 p-4 bg-light ">
+                    <h3>b) AI (Auto Increment = auto-incrementé)</h3><br>
+                    <ul>
+                        <li>L'ID membre sera toujours auto-incrementé.</li><br>
+                        <li>Auto-incrementé est une option permettant de génerer un numéro unique dans un champ de type clef primaire (identifiant).</li><br>
+                        <li>Par conséquent, retenez bien que le 1er champ de chaque table sera systématiquement un <code>"id "</code> qui sera PK et AI.</li><br>
+                    </ul>
+                </div>
+
+                <div class="col-12 m-4 p-4 bg-light ">
+                    <h3>c) NULL, NOT NULL</h3><br>
+                    <ul>
+                        <li>Dans chaque champ, nous pourrons indiquer si nous acceptons les valeurs <code>NULL</code> ou <code>NOT NULL</code></li><br>
+                        <li>"Null " est un type de valeur en informatique évitant de laisser un champ vide si nous n'avons pas d'inforamtion à y déposer.</li><br>
+                    </ul>
+                </div>
+
+                <div class="col-12 m-4 p-4 bg-light ">
+                    <h3>d) Les relations</h3><br>
+                    <p>Il arrive parfois que les sujets interagissent entre eux.
+                    </p><br>
+                    <ul>
+                        <li>Exemples : </li><br>
+                        <li>1 membre commande un produit (ou 1 produit est commandé par un membre), nous deveons enregistrer l'information dans une table commande.</li><br>
+                        <li>1 conducteur conduit 1 véhicule (ou 1 véhicule est conduit par 1 conducteur), il nous faudra une table permetrant de préciser qui conduit tel véhicule.</li><br>
+                    </ul>
+                </div>
+                <!-- fin des 4 col -->
+            </div>
+            <!-- fin row 6 -->
+
 
         </section>
 
