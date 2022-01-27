@@ -27,7 +27,7 @@
     </header>
     <!-- FIN HEADER -->
 
-    <!-- div row caroussel : diaporama full width (cf.container-fluid) -->
+    <!-- DIV caroussel -->
     <div class="container-fluid d-flex mb-4 mt-4 p-4 justify-content-center">
         <!-- debut row -->
         <div class="row col-6">
@@ -49,7 +49,7 @@
         </div>
         <!-- fin row -->
     </div>
-    <!-- fin div caroussel -->
+    <!-- FIN DIV caroussel -->
 
     <!-- MAIN -->
     <main class="row container-fluid mx-auto bg-grisclair">
@@ -144,11 +144,89 @@
 
         </div>
 
+        <!-- section container : MAIN -->
 
+        <section class="container col-sm-10 col-md-8 col-lg-6 bg-grisclair">
 
+            <div class="m-4">
+                <img src="img/front-back.jpg" class="d-block w-100" alt="front-back">
+            </div>
+            <!-- fin div img -->
 
+            <!-- debut row 1 -->
+            <div class="row mt-4">
+                <h2 id="introduction" class="text-dark p-5">1. Introduction</h2>
+                <!-- .col-4*3>h2{$/ Titre} -->
 
+                <div class="col-10 col-md-3 col-lg-3 m-4 bg-light">
+                    <h3>a) MySQL</h2>
+                        <ul>
+                            <li>MySQL peut s'utiliser en ligne de commande (Shell, Bash, CMDR et le Terminal sur Mac ou Linux , ou avec une interface graphique comme phpMyAdmin.</li>
+                            <br>
+                            <li>Pour se connecter en ligne de commande on utilise <code>mysql -u utilisateur -p</code>
+                            </li>
+                            <br>
+                            <li class="alert alert-danger">Attention : il faut penser à mettre le nom d'utilisateur spécifique au serveur ; sur le Pc en local l'utilisateur est 'root' qui signifie 'racine'.
+                            </li>
+                            <br>
+                            <li class="alert alert-success">Pour une première utilisation il est nécessaire d'installer les variables de commandes (variables d'environnement) avant d'utiliser MySQL en ligne de commande :
+                                <ul>
+                                    <li><a href="https://www.malekal.com/variables-environnement-windows/">Pour Windows, cliquer ici !</a>
+                                    </li>
 
+                                    <br>
+
+                                    <li><a href="https://support.apple.com/fr-ne/guide/terminal/apd382cc5fa-4f58-4449-b20a-41c53c006f8f/mac">Pour Mac, <br> cliquez ici !</a><br>
+                                    </li>
+                                </ul>
+                            </li>
+                            <br>
+                            <li>En local sur PC, par défault il n'y a pas de mot de passe, sur MAC le mot de passe est 'root'.</li>
+                            <br>
+                            <li>En ligne chaque BDD aura son utilisateur propre et son mot de passe propre.</li>
+
+                            <li class="alert alert-danger">En cas de bug dans le terminal, relancer la BDD : pour reinitier, faire <code>CRTL + C</code> + relancer la BDD avec <code>USE entreprise</code> + taper la requête</li><br>
+                            <br>
+                        </ul>
+                </div>
+
+                <div class="col-10 col-md-6 col-lg-3 m-4 bg-light">
+                    <h3>b) SGBDR ou SGBD</h3>
+                    <ul>
+                        <li>Un SGBDR est un système de gestion de base de données relationnelles</li><br>
+                        <li>Un système qui permet de gérer une BDD (base de données)</li><br>
+                        <li>Un CRUD : create, read, update, delete (creer, lire, télécharger, supprimer)</li><br>
+                        <li>Date de naissance du MySql : 1994</li><br>
+                        <li>Open source</li><br>
+                        <li>Concurrents : Oracle, MS Access, SQLite, PostgreSQL</li><br>
+                    </ul>
+
+                    <hr>
+
+                    <ul>
+                        <!-- avec abbr on met title pour que le titre s 'affiche directement sur le HTML ? -->
+                        <li><abbr title="Système de gestion de base de données relationnelles">SGBDR</abbr>système de gestion de base de données relationnelles</li><br>
+                        <li><abbr title="Système de gestion de base de données">SGBD</abbr>système de gestion de base de données</li><br>
+                        <li><abbr title="Modèle conceptuel de données">SGBDR</abbr>Modèle conceptuel de données</li><br>
+                        <li><abbr title="Base de données">BD</abbr>Base de données</li><br>
+                        <li><abbr title="Database">DB</abbr>Database (data base)</li><br>
+                        <li><abbr title="Sctructured Query Langage">SQL</abbr>Structured Query Langage</li><br>
+                    </ul>
+                </div>
+
+                <div class="col-10 col-md-6 col-lg-3 m-4 bg-light">
+                    <h3>c) En résumé</h3>
+                    <ul>
+                        <li>A l'intérieur de la BDD les informations sont classées, sctructurées et regroupées par sujet</li><br>
+                        <li>Le langage de requête SQL nous permet d'échanger les informations avec la base; autrement dit, il est utilisé pour la communication entre le client et le serveur</li><br>
+                        <li>Dans une BDD les données sont representées sous forme de "table"(une table membre), comme l'Excel avec ses onglets/feuilles</li><br>
+                        <li>Une fois que les informations ont été enregistrées, il est important de les gérer (ajout, modification, supression, consultation)</li><br>
+                    </ul>
+                </div>
+            </div>
+            <!-- fin row 1  -->
+
+        </section>
 
     </main>
     <!-- FIN MAIN -->
