@@ -163,6 +163,69 @@
             </div>
             <!-- fin row 1 -->
 
+            <!-- debut row 2 -->
+            <div class="row col-10 m-4 bg-light">
+                <h2 id="creation_dune_table" class="text-dark p-5">2. Création d'une table dans le terminal et myPHPAdmin (pas besoin de point virgule)</h2>
+                <p>Création d'une table "employés" dans la BDD entreprise (tester sur le terminal le texte suivant, pour la ligne de commande)</p><br>
+                <p><code>int</code> = integer = c'est nombre entier et on choisi le numéro 3, DEFAULT NOT NULL veut dire qu'il ne peut pas être vide, NULL pourraît être vide. Varchar c'est le nombre de caractères acceptés.</p><br>
+                <p>Copier coller dans le terminal cette requête SQL ou dans SQL du myAdmin : </p><br>
+                <code>
+                    CREATE TABLE IF NOT EXISTS employes ( 
+                        id_employes int(3) NOT NULL AUTO_INCREMENT, <br>
+                        prenom varchar(20) DEFAULT NULL, <br>
+                        nom varchar(20) DEFAULT NULL, <br>
+                        sexe enum ('f', 'm') NOT NULL, <br>
+                        service varchar(30) DEFAULT NULL, <br>
+                        date_embauche date DEFAULT NULL, <br>
+                        salaire float DEFAULT NULL, <br>
+                        PRIMARY KEY (id_employes) <br>
+                    )ENGINE=InnoDB DEFAULT CHARSET=latin1 ; <br>
+                </code>
+
+                <p>Pour que ça marche, il faut creer la DB "entreprise". Voici une liste de commandes possibles à faire :</p> <br>
+                <ul>
+                    <li><code>CREATE DATABASE entreprise CHARACTER SET 'utf8';</code></li><br>
+                    <li><code>USE entreprise;</code></li><br>
+                    <li><code>copier/coller le texte ci-dessous avec la requête : INSERT INTO employes...</code></li><br>
+                    <li><code>SELECT * FROM employes</code></li><br>
+                    <li><code>SELECT DISTINCT(service) FROM employes;</code> : avec DISTINCT on évite les doublons des services, par ex.</li><br>
+                    <li><code> SELECT * FROM employes WHERE service='informatique';</code> : ici on selectionne seulement tous les employes du service informatique</li><br>
+                    <li><code>SELECT prenom, nom FROM employes WHERE service='informatique';</code> : ici on selectionne les nom + prenoms des emplyes du service informatique.</li><br>
+                    <li><code>SELECT nom, prenom, date_embauche FROM employes WHERE date_embauche BETWEEN '2006-01-01' AND '2010-12-31';</code> : ici on selectionne les employés embauchés entre janvier 2006 et décembre 2010.</li><br>
+                    <li><code>SELECT nom, prenom FROM employes WHERE sexe='f';</code>: ici on sélectionne les employés du sexe "féminin".</li>
+                    <li><code>SHOW TABLES</code> : ici on demande de voir les tables.</li><br>
+                    <li><code>DESCRIBE employes</code> : ici on demande le tableau descriptif pour employés.</li><br>
+                </ul> <br>
+
+                <p>Nous venons d'ajouter une table "employes". Nous allons ajouter maintenant les contenus dans cette table. Il faut la même quantité de champs pour les valeurs, pour éviter des décalages sur le tableau.</p><br>
+
+                <code>
+                    INSERT INTO employes    (id_employes, prenom, nom, sexe, service, date_embauche, salaire) VALUES
+                                            (350, 'Jean-Pierre', 'Laborde', 'm', 'direction', '1999-12-09', 5000),
+                                            (388, 'Clement', 'Gallet', 'm', 'commercial', '2000-01-15', 2300),
+                                            (415, 'Thomas', 'Winter', 'm', 'commercial', '2000-05-03', 3550),
+                                            (417, 'Chloe', 'Dubar', 'f', 'production', '2001-09-05', 1900),
+                                            (491, 'Elodie', 'Fellier', 'f', 'secretariat', '2002-02-22', 1600),
+                                            (509, 'Fabrice', 'Grand', 'm', 'comptabilite', '2003-02-20', 1900),
+                                            (547, 'Melanie', 'Collier', 'f', 'commercial', '2004-09-08', 3100),
+                                            (592, 'Laura', 'Blanchet', 'f', 'direction', '2005-06-09', 4500),
+                                            (627, 'Guillaume', 'Miller', 'm', 'commercial', '2006-07-02', 1900),
+                                            (655, 'Celine', 'Perrin', 'f', 'commercial', '2006-09-10', 2700),
+                                            (699, 'Julien', 'Cottet', 'm', 'secretariat', '2007-01-18', 1390),
+                                            (701, 'Mathieu', 'Vignal', 'm', 'informatique', '2008-12-03', 2000),
+                                            (739, 'Thierry', 'Desprez', 'm', 'secretariat', '2009-11-17', 1500),
+                                            (780, 'Amandine', 'Thoyer', 'f', 'communication', '2010-01-23', 1500),
+                                            (802, 'Damien', 'Durand', 'm', 'informatique', '2010-07-05', 2250),
+                                            (854, 'Daniel', 'Chevel', 'm', 'informatique', '2011-09-28', 1700),
+                                            (876, 'Nathalie', 'Martin', 'f', 'juridique', '2012-01-12', 3200),
+                                            (900, 'Benoit', 'Lagarde', 'm', 'production', '2013-01-03', 2550),
+                                            (933, 'Emilie', 'Sennard', 'f', 'commercial', '2014-09-11', 1800),
+                                            (990, 'Stephanie', 'Lafaye', 'f', 'assistant', '2015-06-02', 1775);
+                </code>
+            </div>
+            <!-- fin row 2 -->
+
+
 
 
 
