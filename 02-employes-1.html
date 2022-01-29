@@ -460,6 +460,55 @@
 
             <hr>
 
+            <div class="col-md-10">
+
+                <ul>
+                    <li>Différent de <code>!=</code>: Afficher tous les employés, sauf ceux du service informatique : <code>SELECT prenom, nom, service FROM employes WHERE service != 'informatique';</code></li>
+
+                    <code>+-------------+----------+---------------+
+                        | prenom      | nom      | service       |
+                        +-------------+----------+---------------+
+                        | Jean-Pierre | Laborde  | direction     |
+                        | Clement     | Gallet   | commercial    |
+                        | Thomas      | Winter   | commercial    |
+                        | Chloe       | Dubar    | production    |
+                        | Elodie      | Fellier  | secretariat   |
+                        | Fabrice     | Grand    | comptabilite  |
+                        | Melanie     | Collier  | commercial    |
+                        | Laura       | Blanchet | direction     |
+                        | Guillaume   | Miller   | commercial    |
+                        | Celine      | Perrin   | commercial    |
+                        | Julien      | Cottet   | secretariat   |
+                        | Thierry     | Desprez  | secretariat   |
+                        | Amandine    | Thoyer   | communication |
+                        | Nathalie    | Martin   | juridique     |
+                        | Benoit      | Lagarde  | production    |
+                        | Emilie      | Sennard  | commercial    |
+                        | Stephanie   | Lafaye   | assistant     |
+                        +-------------+----------+---------------+</code>
+
+                    <li>Supérieur à <code> > </code> : afficher les employés qui gagnent plus de 3000 euros : <code> SELECT prenom, nom, salaire FROM employes WHERE salaire > 3000;</code></li><br>
+
+                    <li>Inférieur à <code> < </code> : afficher TOUS les employés qui gagnent MOINS de 3000 euros : <code> SELECT prenom, nom, salaire FROM employes WHERE salaire < 3000;</code></li><br>
+                </ul>
+            </div>
+            <!-- fin row ? -->
+
+            <div class="row bg-light">
+                <h2>6- Classement avec ORDER BY</h2>
+                <div class="col-md-10">
+                    <ul>
+                        <li>Grace à ORDER BY on va classer les données par ordre alphabétique</li>
+                        <li> On range les noms par ordre alphabétique grâce au code suivant : <code>SELECT prenom, nom FROM employes ORDER BY nom DESC;</code></li>
+                        <li class="alert alert-success">On précise <em>ASC</em> (ascendant) ou <em>DESC</em> (descendant). Se ce n'est pas précisé, ce sera trié automatiquement du plus petit au plus grand.</li>
+                        <li>Fonctionnne par les chaînes de caractères comme pour les nombres :<code>SELECT sexe, salaire FROM employes ORDER BY salaire ASC;</code></li>
+                        <li>ORDER BY permet aussi de trier sur plusieurs colonnes : <code>SELECT nom, prenom, service, salaire FROM employes ORDER BY service ASC, salaire ASC;</code></li>
+                    </ul>
+                </div>
+                <!-- fin col - div ul -->
+            </div>
+            <!-- fin ROW -->
+
 
 
 
