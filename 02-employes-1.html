@@ -599,6 +599,120 @@
                 </div>
                 <!-- fin col -->
 
+                <div class="col-md-10">
+                    <h3>b) Calculer une somme <code>SUM</code> et une moyenne <code>AVG</code></h3>
+
+                    <ul>
+                        <li>On calcule <code>la somme totale</code> des salaires à l'année des employés : <br>
+                            <code>SELECT SUM(salaire*12) FROM employes; <br>
+                            +-----------------+
+                            | SUM(salaire*12) | <br>
+                            +-----------------+
+                            |          577380 | <br>
+                            +-----------------+
+                            1 row in set (0.002 sec)
+                            </code>
+                        </li> <br>
+
+                        <li>On calcule <code>la moyenne</code> des salaires mensuels des employés : <br>
+                            <code>SELECT AVG(salaire) FROM employes;<br>
+                                +--------------+
+                                | AVG(salaire) |<br>
+                                +--------------+
+                                |      2405.75 |<br>    
+                                +--------------+
+                                1 row in set (0.001 sec)
+                            </code>
+                        </li> <br>
+
+                        <li>On calcule <code>la moyenne</code> des salaires mensuels des employés avec un alias <code>AS</code> : <br>
+                            <code> SELECT AVG(salaire) AS salaire__moyen  FROM employes; <br>
+                                +----------------+
+                                | salaire__moyen | <br>
+                                +----------------+
+                                |        2405.75 |  <br>
+                                +----------------+
+                                1 row in set (0.001 sec)             
+                            </code>
+                        </li> <br>
+
+                        <li>Remarque : la même requête avec la création d'un alias sans le mot <code>AS</code> (pour info). Mais Patrick déconseil car pour ça on utilise les quotes simples : <br>
+                            <code>SELECT AVG(salaire) 'salaire__moyen' FROM employes; <br>
+                            +----------------+
+                            | salaire__moyen | <br>
+                            +----------------+
+                            |        2405.75 | <br>
+                            +----------------+
+                            </code>
+                        </li>
+                    </ul>
+                </div>
+                <!-- fin col -->
+
+                <div class="col-md-10">
+                    <h3>c) Arrondir avec <code>ROUND()</code></h3>
+
+                    <ul>
+                        <li>Avec ROUND on peut arrondir le résultat d'un calcul, dans un alias (<code>AS</code>) : <br>
+                            <code> SELECT ROUND(AVG(salaire)) AS salaire__moyen FROM employes;
+                                +----------------+
+                                | salaire__moyen |
+                                +----------------+
+                                |           2406 |
+                                +----------------+
+                            </code>; <br>
+                        </li>
+
+                        <li>On peut cumuler deux notions avec ROUND et AVG ; Attention à la syntaxe et aux paranthèses(<code></code>) : <br>
+                            <code>SELECT nom, prenom, salaire, ROUND(salaire/150) AS salaire__horaire FROM employes; <br>
+                                +----------+-------------+---------+------------------+
+                                | nom      | prenom      | salaire | salaire__horaire | <br>
+                                +----------+-------------+---------+------------------+
+                                | Laborde  | Jean-Pierre |    5000 |               33 |<br>
+                                | Gallet   | Clement     |    2300 |               15 |<br>
+                                | Winter   | Thomas      |    3550 |               24 |<br>
+                                | Dubar    | Chloe       |    1900 |               13 |<br>
+                                | Fellier  | Elodie      |    1600 |               11 |<br>
+                                | Grand    | Fabrice     |    1900 |               13 |<br>
+                                | Collier  | Melanie     |    3100 |               21 |<br>
+                                | Blanchet | Laura       |    4500 |               30 |<br>
+                                | Miller   | Guillaume   |    1900 |               13 |<br>
+                                | Perrin   | Celine      |    2700 |               18 |<br>
+                                | Cottet   | Julien      |    1390 |                9 |<br>
+                                | Vignal   | Mathieu     |    2000 |               13 |<br>
+                                | Desprez  | Thierry     |    1500 |               10 |<br>
+                                | Thoyer   | Amandine    |    1500 |               10 |<br>
+                                | Durand   | Damien      |    2250 |               15 |<br>
+                                | Chevel   | Daniel      |    1700 |               11 |<br>
+                                | Martin   | Nathalie    |    3200 |               21 |<br>
+                                | Lagarde  | Benoit      |    2550 |               17 |<br>
+                                | Sennard  | Emilie      |    1800 |               12 |<br>
+                                | Lafaye   | Stephanie   |    1775 |               12 |<br>
+                                +----------+-------------+---------+------------------+
+                                20 rows in set (0.001 sec)
+                                </code>
+                        </li><br>
+
+                        <h3>d) Compter avec <code>COUNT()</code></h3>
+
+                        <ul>
+                            <li>On peut compter le nombre d'employés du sexe féminin <code> SELECT COUNT(*) FROM employes WHERE sexe = 'f'; <br>
+                    MariaDB [entreprise]> SELECT COUNT(*) FROM employes WHERE sexe = 'f';
+                        +----------+
+                        | COUNT(*) |
+                        +----------+
+                        |        9 |
+                        +----------+
+                     
+                       </code> <br>
+                            </li>
+                        </ul>
+                </div>
+                <!-- fin col -->
+
+
+
+
 
 
 
