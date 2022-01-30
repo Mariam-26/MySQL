@@ -710,6 +710,46 @@
                 </div>
                 <!-- fin col -->
 
+                <div class="col-md-10">
+                    <h3>e) Isoler une valeur avec MIN (minimum) ou MAX (maximum)</h3>
+
+                    <ul>
+                        <li>Avec <code>MIN</code> on peut trouver le salaire le plus bas : <br>
+                            <code>
+                            MariaDB [entreprise]> SELECT MIN(salaire) FROM employes;
+                            +--------------+
+                            | MIN(salaire) |
+                            +--------------+
+                            |         1390 |
+                            +--------------+ 
+
+                            MariaDB [entreprise]> SELECT MAX(salaire) FROM employes;
+                            +--------------+
+                            | MAX(salaire) |
+                            +--------------+
+                            |         5000 |
+                            +--------------+
+                        </code>
+                        </li> <br>
+
+                        <li>Si on veut le nom, le prénom et le salaire de la personne qui touche le salaire le plus bas, <code>SELECT nom, prenom, salaire FROM employes WHERE salaire=(SELECT MIN(salaire) FROM employes);</code></li> <br>
+
+                        <li>Le système va éxecuter en premier la requête entre parenthèse pour connaître le résultat et l'éxecuter comme source pour la seconde requête.</li> Attention : ne pas oublier toutes les parenthèses !!!
+                    </ul>
+                    </ul>
+                </div>
+                <!-- fin col -->
+            </div>
+
+            <div class="row">
+                <h2>9. Les conditions multiples</h2>
+
+                <div class="col-md-10">
+                    <p>... A COMPLETER...</p>
+                </div>
+            </div>
+            <!-- fin row -->
+
 
 
 
