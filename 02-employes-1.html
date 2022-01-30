@@ -750,15 +750,36 @@
             </div>
             <!-- fin row -->
 
+            <div class="row bg-light">
+                <h2>10 - Les regroupements avec GROUP BY</h2>
 
+                <div class="col-md-10">
+                    <ul>
+                        <h3>a)Le nombre d'employés par service</h3>
+                        <li>Ici on veut connaître le nombre d'employés par service : <br>
+                            <code> SELECT service, COUNT(*) AS nombre_employes FROM employes GROUP BY service;
+                                +---------------+-----------------+
+                                | service       | nombre_employes |
+                                +---------------+-----------------+
+                                | assistant     |               1 |
+                                | commercial    |               6 |
+                                | communication |               1 |
+                                | comptabilite  |               1 |
+                                | direction     |               2 |
+                                | informatique  |               3 |
+                                | juridique     |               1 |
+                                | production    |               2 |
+                                | secretariat   |               3 |
+                                +---------------+-----------------+
+                            </code></li><br>
 
+                        <li class="alert alert-success">La virgule ici signifie "et" donc on cherche le service et on compte le nombre d'meployés par service.</li><br>
+                </div>
+                <!-- fin col -->
+                <!-- fin row -->
 
-
-
-
-
-
-
+        </section>
+        <!-- Fin section container : zoning avec contenu MAIN-->
 
     </main>
     <!-- FIN MAIN -->
