@@ -268,6 +268,149 @@
             </div>
             <!-- fin row 1 -->
 
+            <div class="row justify-content-center mt-4">
+                <h2 id="" class="text-dark p-5">4. EXOS</h2>
+
+                <div class="col-md-10">
+
+                    <h3>Pensez à faire un commit et un push !!! <br> Certains d'entre vous n'ont pas la BDD sur leurs ordinateurs personels il faut la recréer...
+                    </h3>
+
+                    <ol>
+                        <li> Afficher la profession de l'employé 547 : <br>
+
+                            <code>SELECT nom, prenom FROM employes WHERE id_employes = 547;
+                                +---------+---------+
+                                | nom     | prenom  |
+                                +---------+---------+
+                                | Collier | Melanie |
+                                +---------+---------+</code></li><br>
+
+
+                        <code>SELECT service FROM employes WHERE id_employes = 547;
+                                +------------+
+                                | service    |
+                                +------------+
+                                | commercial |
+                                +------------+</code>
+
+                        <p>L'employé 547 est une commercial !</p>
+
+                        <li> Afficher la date d'embauche d'Amandine : <br>
+                            <code>SELECT nom, prenom FROM employes WHERE sexe='f';</code></li><br>
+                        <code>SELECT nom, prenom, id_employes FROM employes;
+                                +----------+-------------+-------------+
+                                | nom      | prenom      | id_employes |
+                                +----------+-------------+-------------+
+                                | Laborde  | Jean-Pierre |         350 |
+                                | Winter   | Thomas      |         415 |
+                                | Dubar    | Chloe       |         417 |
+                                | Fellier  | Elodie      |         491 |
+                                | Grand    | Fabrice     |         509 |
+                                | Collier  | Melanie     |         547 |
+                                | Blanchet | Laura       |         592 |
+                                | Miller   | Guillaume   |         627 |
+                                | Perrin   | Celine      |         655 |
+                                | Cottet   | Julien      |         699 |
+                                | Desprez  | Thierry     |         739 |
+                                | Thoyer   | Amandine    |         780 |
+                                | Martin   | Nathalie    |         876 |
+                                | Lagarde  | Benoit      |         900 |
+                                | Sennard  | Emilie      |         933 |
+                                | Lafaye   | Stephanie   |         990 |
+                                +----------+-------------+-------------+</code><br>
+
+                        <code>SELECT nom, prenom, date_embauche FROM employes WHERE prenom = 'Amandine';
+                                +--------+----------+---------------+
+                                | nom    | prenom   | date_embauche |
+                                +--------+----------+---------------+
+                                | Thoyer | Amandine | 2010-01-23    |
+                                +--------+----------+---------------+</code>
+
+                        <p>Amandine a été embauchée le 23/01/2010 !</p>
+
+
+                        <li> Afficher le nombre de commerciaux : <code>SELECT COUNT(*) FROM employes WHERE service = 'commercial';
+                            +----------+
+                            | COUNT(*) | <br>
+                            +----------+
+                            |        5 |
+
+                            +----------+ <br> SELECT COUNT(*) AS 'nbr_commerciaux' FROM employes WHERE service = 'commercial';
+                            +-----------------+
+                            | nbr_commerciaux |<br>
+                            +-----------------+
+                            |               5 |
+                            +-----------------+ <br>
+                            
+                            
+                            SELECT * FROM employes WHERE service='commercial'; <br>
+                            +-------------+-----------+---------+------+------------+---------------+---------+
+                            | id_employes | prenom    | nom     | sexe | service    | date_embauche | salaire |
+                            +-------------+-----------+---------+------+------------+---------------+---------+
+                            |         415 | Thomas    | Winter  | m    | commercial | 2000-05-03    |    3550 |
+                            |         547 | Melanie   | Collier | f    | commercial | 2004-09-08    |    3100 |
+                            |         627 | Guillaume | Miller  | m    | commercial | 2006-07-02    |    1900 |
+                            |         655 | Celine    | Perrin  | f    | commercial | 2006-09-10    |    2700 |
+                            |         933 | Emilie    | Sennard | f    | commercial | 2014-09-11    |    1800 |
+                            +-------------+-----------+---------+------+------------+---------------+---------+</code></li><br>
+
+                        <p>Ils sont 5 commerciaux !</p>
+
+                        <li> Afficher le coût des commerciaux sur une année : <code></code></li><br> SELECT SUM(salaire * 12) FROM employes WHERE service = 'commercial'; +-------------------+ | SUM(salaire * 12) | <br> +-------------------+ | 156600 |<br>
+
+                        <li>On rajout un alias (AS) : la colonne salaire_annuel : SELECT SUM(salaire * 12) AS 'salaire_annuel_commerciaux' FROM employes WHERE service = 'commercial';</li> <br> +----------------------------+ | salaire_annuel_commerciaux |<br>                        +----------------------------+ | 156600 |<br> +----------------------------+
+                        </code>
+
+
+
+                        <li> Afficher le salaire moyen par service : <code>SELECT AVG(salaire), service FROM employes GROUP BY service;<br>
+                            +--------------------+---------------+
+                            | AVG(salaire)       | service       |<br>
+                            +--------------------+---------------+
+                            |               1775 | assistant     |<br>
+                            |               2610 | commercial    |
+                            |               1500 | communication |
+                            |               1900 | comptabilite  |
+                            |               4750 | direction     |
+                            |               3200 | juridique     |
+                            |               2225 | production    |
+                            | 1496.6666666666667 | secretariat   |
+                            +--------------------+---------------+</code></li><br>
+
+                        <li> Afficher le nombre de recrutement sur l'année 2010 : <code>
+                            SELECT AVG(salaire) AS 'salaire_moyen_par_service', service FROM employes GROUP BY service ORDER BY salaire_moyen_par_service;
+                            +---------------------------+---------------+
+                            | salaire_moyen_par_service | service       |
+                            +---------------------------+---------------+
+                            |        1496.6666666666667 | secretariat   |
+                            |                      1500 | communication |
+                            |                      1775 | assistant     |
+                            |                      1900 | comptabilite  |
+                            |                      2225 | production    |
+                            |                      2610 | commercial    |
+                            |                      3200 | juridique     |
+                            |                      4750 | direction     |
+                            +---------------------------+---------------+
+                        </code></li><br>
+
+                        <li>Salaire moyen par servide et trier du plus petit au plus grand: <code></code></li><br>
+
+
+                        <li>Afficher le nombre de recrutemetnts en 2010, plusieurs méthodes (mais BETWEEN est plus pratique) : <br>
+
+                            <code>SELECT COUNT(*) AS 'nbre de recrutements en 2010' FROM employes WHERE date_embauche LIKE '2010%';<br>
+                            +------------------------------+
+                            | nbre de recrutements en 2010 |
+                            +------------------------------+
+                            |                            1 |
+                            +------------------------------+</code></li> <br> SELECT COUNT(*) AS 'nbre de recrutements en 2010' FROM employes WHERE date_embauche BETWEEN '2010-01-01' AND '2010-12-31';<br> +------------------------------+
+                        | nbre de recrutements en 2010 | +------------------------------+ | 1 | +------------------------------+ <br> SELECT COUNT(*) AS 'nbre de recrutements en 2010' FROM employes WHERE date_embauche >= '2010-01-01' AND date_embauche
+                        <='2010-12-31' ; <br>
+                            +------------------------------+ | nbre de recrutements en 2010 | +------------------------------+ | 1 | +------------------------------+
+
+
+
     </main>
     <!-- FIN MAIN -->
 
