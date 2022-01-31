@@ -133,10 +133,92 @@
         </div>
 
         <!-- section container : zoning avec contenu principal-->
+        <section class="container mb-4 p-4 bg-light col-9">
+
+            <div class="row justify-content-center">
+                <h2 id="modelisation">1. Modélisation</h2>
+                <div class="col-md-8">
+                    <figure>
+                        <img src="img/designer.png" alt="Modélisation">
+                        <figcaption>Modélisation de la BDD bibliotheque</figcaption>
+                    </figure>
+                </div>
+                <!-- fin col  -->
+            </div>
+            <!-- fin row -->
+
+            <div class="row">
+
+                <h3 class="text-center">Les codes nécessaires pour la création des différentes parties</h3>
+                <p>On écrit la requête suivante sur le terminal : <br>
+                    <code>CREATE DATABASE bibliotheque CHARACTER SET 'utf8';</code></p><br>
+
+                <div class="col-md-4 m-5">
+                    <figure>
+                        <img src="img/abonne.png" class="image" alt="table abonné">
+                        <figcaption class="text-center">La table abonné</figcaption>
+                    </figure>
+                </div>
+                <!-- fin col -->
+
+                <div class="col-md-4 m-5">
+                    <h4>Création et insertion de la table abonné : </h4><br>
+                    <code>CREATE TABLE abonne (
+                      id_abonne INT(3) NOT NULL AUTO_INCREMENT,
+                      prenom VARCHAR(25) NOT NULL,
+                      PRIMARY KEY (id_abonne)
+                      ) ENGINE=InnoDB;</code>
+
+                    <hr>
+
+                    <code>INSERT INTO `abonne` (`id_abonne`, `prenom`) VALUES <br>
+                          (1, 'Guillaume'),
+                          (2, 'Benoît'),
+                          (3, 'Chloé'),
+                          (4, 'Laura');
+                      </code><br>
+
+                    <p><code>NULL</code> : le code peut être vide;</p><br>
+                    <p><code>NOT NULL</code> : le code ne peut pas être vide;</p><br>
+                </div>
+                <!-- fin col -->
+
+            </div>
+            <!-- fin row  -->
+
+            <!-- debut row -->
+            <div class="row mt-3">
+                <div class="col-md-4 m-5">
+                    <figure>
+                        <img src="img/livre.png" class="image" alt="tableau livre">
+                        <figcaption class="text-center">La table livre</figcaption>
+                    </figure>
+                </div>
+                <!-- fin col -->
+
+                <div class="col-md-4 m5">
+                    <h4>Création de la table livre : </h4> <br>
+
+                    <li>
+                        <code>CREATE TABLE livre (
+                          id_livre INT(3) NOT NULL AUTO_INCREMENT,
+                          auteur VARCHAR(30) NOT NULL,
+                          titre VARCHAR(30) NOT NULL,
+                          PRIMARY KEY (id_livre)
+                          ) ENGINE=InnoDB;
+                          </code>
+                    </li><br>
+
+                    <li><code>DESCRIBE livre;</code></li><br>
+                </div>
+                <!-- fin col -->
+            </div>
+            <!-- fin row  -->
 
 
 
-        <!-- Fin SECTION container -->
+
+            <!-- Fin SECTION container -->
     </main>
     <!-- FIN MAIN -->
 
