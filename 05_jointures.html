@@ -141,11 +141,74 @@
             </nav>
         </div>
 
-        <!-- ================================================ -->
         <!-- section container : avec contenu principal-->
-        <!-- ================================================ -->
 
         <section class="container mb-4 p-4 bg-light col-9">
+            <h2>1- Quelques fonctions</h2>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <table class="table table-striped">
+                        <caption>Fonctions prédéfinies</caption>
+                        <thead>
+                            <tr>
+                                <th>Fonctions prédéfinies</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><code>SELECT CURDATE</code></td>
+                                <td>Affiche la date courante : quand on aura besoin de la date du jour dans la requête</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT CURDATE() +0</code></td>
+                                <td>Affiche la date courante sans tirets, pratique pour nommer un fichier</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT CURTIME()</code></td>
+                                <td>Affiche l'heure</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT NOW()</code></td>
+                                <td>Affiche la date et l'heure</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT DATE_ADD('2021-12-06', INTERVAL 31 DAY)</code></td>
+                                <td>Ajouter XX jour à date du départ</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT DATE_FORMAT(NOW(), '%d/%m/%Y - %H : %i : %s')</code></td>
+                                <td>Ajouter XX jour à date du départ</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT *, DATE_FORMAT(date_rendu, '%d/%m/%Y') AS 'date FR' FROM emprunt</code></td>
+                                <td>Changer le format de la date du jour au format FR</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT CONCAT_WS('-', 'a', 'b', 'c')</code></td>
+                                <td>WS (with separator) : utile pour concaténer un code postal avec ne ville</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SELECT TRIM(' coucou')</code></td>
+                                <td>Supprime les espaces en début et en fin de chaîne</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- fin tableau -->
+                </div>
+                <!-- fin col -->
+            </div>
+            <!-- fin row -->
 
         </section>
         <!-- fin container -->
