@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exos - 01</title>
+</head>
+
+<body>
+
+    <ol>
+        <li>Afficher le nom des agences</li>
+        <li>Afficher l'id de l'agence 'Orpi'</li>
+        <li>Afficher le premier enregistrement de la table logement</li>
+        <li>Afficher les logement à vendre qui coûtent moins de 150 000€ ds l'ordre croissant des prix</li>
+        <li>Compter le nbre de logement didponible en location et donner à la colonne l'alias 'logement_location'</li>
+        <li>Afficher les villes differentes recherchées par les personnes demandeuses d'un logement</li>
+        <li>Afficher le nbre de bien à vendre par ville</li>
+        <li>Afficher le nombre de service</li>
+        <li>Afficher l'id des logements destinés à la location'</li>
+        <li>Afficher l'id des logements dont la superficie est entre 20m2 et 30m2</li>
+    </ol>
+
+    <ol>
+        <li><code>SELECT nom FROM agence;</code>
+            <div>
+                <!-- <img src="img/reponse1.png" alt="reponse1"></li> -->
+
+            </div>
+            <li><code>SELECT idAgence FROM agence WHERE nom = 'Orpi';</code>
+                <div>
+                    <!-- <img src="img/reponse2.png" alt="reponse2"> -->
+                </div>
+            </li>
+
+            <li><code>SELECT * FROM logement ORDER BY idLogement ASC LIMIT 0,1;</code>
+                <div>
+                    <!-- <img src="img/reponse3.png" alt="reponse3"> -->
+                </div>
+            </li>
+
+            <li><code>SELECT * FROM `logement` WHERE prix < 150000 AND categorie='vente' ORDER BY prix ASC;</code>
+                <div>
+                    <!-- <img src="img/reponse4.png" alt="reponse4"> -->
+                </div>
+            </li>
+
+            <li><code>SELECT COUNT(*) FROM logement</code>
+                <div>
+                    <!-- <img src="img/reponse5.png" alt="reponse5"> -->
+                </div>
+            </li>
+
+            <li><code>SELECT DISTINCT ville <br>
+            FROM demande;</code>
+                <code>SELECT ville <br>
+                FROM demande GROUP BY ville;</code>
+                <div>
+                    <!-- <img src="img/reponse6.png" alt="reponse6.png"><img src="img/reponse6.2.png" alt="reponse6.2.png"></li> -->
+                </div>
+
+                <li><code>SELECT ville, COUNT(ville)
+            FROM logement WHERE categorie='vente';</code>
+                    <div>
+                        <!-- <img src="img/reponse7.png" alt="reponse7"> -->
+                    </div>
+                </li>
+                <li><code>SELECT COUNT(DISTINCT service) AS nombre FROM employes;</code>
+                    <div>
+                        <img src="img/reponse8.png" alt="reponse8">
+                    </div>
+                </li>
+                <li><code>SELECT idLogement FROM logement;</code>
+                    <div>
+                        <!-- <img src="img/reponse9.png" alt="reponse9"> -->
+                    </div>
+                </li>
+                <li><code>SELECT idLogement FROM logement WHERE superficie BETWEEN '20' AND '30'</code>
+                    <div>
+                        <!-- <img src="img/reponse10.png" alt="reponse1.png"><img src="img/reponse10.1.png"> </div> -->
+                </li>
+    </ol>
+
+</body>
+
+</html>
