@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <title>Cours SQL - Les fonctions/05 </title>
+    <title>Cours SQL</title>
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -22,8 +22,8 @@
     <header class="container mt-4 p-4 bg-white">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="display-4 text-dark">Cours SQL - Les fonctions # 5</h1>
-                <p class="lead">Les fonctions prédéfinies</p>
+                <h1 class="display-4 text-dark">Cours SQL - Les jointures</h1>
+                <p class="lead">Les jointures</p>
             </div>
         </div>
         <!-- fin row  -->
@@ -64,153 +64,69 @@
         <!-- aside gauche avec nav sommaire -->
         <div class="col-sm-12 col-md-2 col-lg-3 p-4">
 
-            <!-- nav pour la page index : sommaire -->
-            <nav id="navbar-example3" class="navbar navbar-light flex-column align-items-stretch p-3">
-                <a class="navbar-brand" href="#index">Page Index - Sommaire</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#introduction">1. Introduction</a>
-                    <a class="nav-link" href="#modelisation">2. Modélisation</a>
-                    <a class="nav-link" href="#tables">3. Les tables </a>
-                    <a class="nav-link" href="#les_colonnes">4. Les colonnes ou les champs </a>
-                    <a class="nav-link" href="#les_types_de_donnees">5. Les types de données</a>
-                    <a class="nav-link" href="#pk_ai_id">6. Types de données PK AI pour ID</a>
-                    <a class="nav-link" href="#les_cardinalites">7. Les cardinalités</a>
-                    <a class="nav-link" href="#table de jointure">8.Table de jointure</a>
-                    <a class="nav-link" href="#clefs_etrangères">9. Clefs étrangères ou FK</a>
-                    <a class="nav-link" href="#les_enregistrements">10. Les enrégistrements</a>
-                    <a class="nav-link" href="#interroger_la_bdd">11. Intérroger la BDD </a>
-                </nav>
+            <h1> Les Jointures en mySQL</h1>
 
-                <!-- nav pour la page 01_requêtes -->
-                <a class="navbar-brand" href="#">Page 01 - Requêtes</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#introduction">1. Base d'une BDD</a>
-                    <a class="nav-link" href="#modelisation">2. Création d'une table</a>
-                    <a class="nav-link" href="#tables">3. SELECT et DISTINCT</a>
-                    <a class="nav-link" href="#les_colonnes">4. Les conditions</a>
-                    <a class="nav-link" href="#les_types_de_donnees">5. Les opérateurs de comparaison</a>
-                    <a class="nav-link" href="#pk_ai_id">6. ORDER BY</a>
-                    <a class="nav-link" href="#les_cardinalites">7. Limitation avec LIMIT</a>
-                    <a class="nav-link" href="#table de jointure">8. Faire des calculs</a>
-                    <a class="nav-link" href="#clefs_etrangères">9. Les conditions multiples</a>
-                    <a class="nav-link" href="#les_enregistrements"> Les regroupements</a>
-                </nav>
+            <section class="row">
 
-                <!-- nav pour la page 02_requêtes -->
-                <a class="navbar-brand" href="#">Page 02 - Requêtes</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#INSERT INTO, insertion">1. INSERT INTO, insertion</a>
-                    <a class="nav-link" href="#modelisation">2. UPDATE, mise à jour</a>
-                    <a class="nav-link" href="#tables">3. DELETE, effacer</a>
-                    <a class="nav-link" href="#les_colonnes">4. Exo</a>
-                </nav>
+                <div class="col-12">
 
-                <!-- nav pour la page 03_requêtes imbriquées -->
-                <a class="navbar-brand" href="#">Page 03 - Requêtes imbriquées <br>
-                BDD "bibliotheque"</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#">1. Modélisation </a>
-                    <a class="nav-link" href="#">2. Création de la table</a>
-                    <a class="nav-link" href="#">3. Insertion de contenu</a>
-                    <a class="nav-link" href="#">4. Création clé-étrangère</a>
-                    <a class="nav-link" href="#">4. Selectionner des tables(SELECT)</a>
-                </nav>
+                    <h2 class="text-texte"> 1- Jointures </h2>
 
-                <!-- nav pour la page 04_jointures -->
-                <a class="navbar-brand" href="#">Page 04 - Jointures</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#">1. Définition </a>
-                    <a class="nav-link" href="#">2. Récapitulatif</a>
-                    <a class="nav-link" href="#">3. Exemples</a>
-                    <a class="nav-link" href="#">4. Jointures externes </a>
-                    <a class="nav-link" href="#">5. Jointures externes avec UNION </a>
-                </nav>
+                    <h3 class="text-center"> a) Définition</h3>
 
-                <!-- nav pour la page 05_fonctions -->
-                <a class="navbar-brand" href="#">Page 05 - Fonctions</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#">1. Quelques fonctions </a>
-                </nav>
+                    <p>Les jointures permettent , comme les requêtes imbriquées sur plusieurs tables. Pour cela il faut un champ commun aux tables sur lesquelles on veut chercher une information .l'avantage des jointures est que l'on peut obtenir un résultat
+                        final des colonnes ou champs issus de plusieurs tables différentes.</p>
 
-                <!-- nav pour la page 05_exos -->
-                <a class="navbar-brand" href="#">Page 06 - EXO: BDD immobilier</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link" href="#">1. Modélisation de la BDD immobilier : créations des tables et insertion de contenu<br> </a>
-                    <a class="nav-link" href="#">2. Exos / récap : multiples requêtes SQL<br> </a>
-                </nav>
-            </nav>
-        </div>
 
-        <!-- section container : avec contenu principal-->
+                    <h3 class="text-center"> b) Récapitulatif </h3>
 
-        <section class="container mb-4 p-4 bg-light col-9">
-            <h2>1- Quelques fonctions</h2>
+                    <ul>
 
-            <div class="row">
-                <div class="col-md-10">
-                    <table class="table table-striped">
-                        <caption>Fonctions prédéfinies</caption>
-                        <thead>
-                            <tr>
-                                <th>Fonctions prédéfinies</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
+                        <li> <code> SELECT</code> : permet de selectionner la liste des champs que je souhaite afficher dans mon résultat de ma requête.</li>
+                        <li> <code>FROM</code> : j'annonce dans quelle table je cherche l'information.</li>
+                        <li> <code>WHERE</code> : Condition de jointure pour assurer le croisement des données.</li>
+                        <li> <code>AND /OR</code>: autres conditions éventuelles </li>
+                    </ul>
 
-                        <tbody>
-                            <tr>
-                                <td><code>SELECT CURDATE</code></td>
-                                <td>Affiche la date courante : quand on aura besoin de la date du jour dans la requête</td>
-                            </tr>
+                    <h3 class="text-center">c) Exemples</h3>
 
-                            <tr>
-                                <td><code>SELECT CURDATE() +0</code></td>
-                                <td>Affiche la date courante sans tirets, pratique pour nommer un fichier</td>
-                            </tr>
 
-                            <tr>
-                                <td><code>SELECT CURTIME()</code></td>
-                                <td>Affiche l'heure</td>
-                            </tr>
+                    <ul>
 
-                            <tr>
-                                <td><code>SELECT NOW()</code></td>
-                                <td>Affiche la date et l'heure</td>
-                            </tr>
+                        <li>Dans la BDD bibliotheque, on va afficher les dates auxquelles guillaume s'est rendu à la bibliotheque pour emprunter ou rendre des livres, on a besoin de trois colonnes : prenom, date_sortie et date_rendu <code> SELECT abonne.prenom, emprunt.date_rendu, emprunt.date_sortie FROM abonne, emprunt WHERE abonne.id_abonne=emprunt.id_abonne AND abonne.prenom='guillaume';  </code>                            </li>
 
-                            <tr>
-                                <td><code>SELECT DATE_ADD('2021-12-06', INTERVAL 31 DAY)</code></td>
-                                <td>Ajouter XX jour à date du départ</td>
-                            </tr>
+                        <li>La même requête avec des préfixes: <code>SELECT a.prenom, e.date_sortie, e.date_rendu FROM abonne a, emprunt e WHERE a.id_abonne=e.id_abonne AND a.prenom="Guillaume"; </code> </li>
 
-                            <tr>
-                                <td><code>SELECT DATE_FORMAT(NOW(), '%d/%m/%Y - %H : %i : %s')</code></td>
-                                <td>Ajouter XX jour à date du départ</td>
-                            </tr>
+                        <li>EXO 1 => Trouver qui a emprunté <em>Une vie </em> en 2014: <code>SELECT a.prenom FROM abonne a, emprunt e , livre l WHERE l.id_livre=e.id_livre AND e.id_abonne=a.id_abonne AND l.titre = 'Une Vie' AND e.date_sortie LIKE '2014%'; </code>                            la même chose en requête imbriquée: <code> SELECT prenom FROM abonne WHERE id_abonne IN (SELECT id_abonne FROM emprunt WHERE date_sortie LIKE '2014%' AND id_livre IN (SELECT id_livre FROM livre WHERE titre='Une vie'));</code></li>
+                        <li>Affichez le nombre de livre emprunter par chaque abonne <code> SELECT a.prenom, COUNT(e.id_livre) AS 'nombre de livres empruntés'FROM abonne a, emprunt e WHERE a.id_abonne=e.id_abonne GROUP BY e.id_abonne;</code></li>
+                        <li>EXO 3 qui a emprunté quoi et quand ?( indice : qui = prenom, quoi = titre et quand = date_sortie :</li>
+                        <code> SELECT a.prenom, l.titre, e.date_sortie FROM abonne a, emprunt e, livre l WHERE a.id_abonne = e.id_abonne AND l.id_livre = e.id_livre ORDER BY prenom ASC;</code>
 
-                            <tr>
-                                <td><code>SELECT *, DATE_FORMAT(date_rendu, '%d/%m/%Y') AS 'date FR' FROM emprunt</code></td>
-                                <td>Changer le format de la date du jour au format FR</td>
-                            </tr>
+                        <li> EXO 4 Ajoute un abonne qui s'appelle ALEX : <code> INSERT INTO abonne (id_abonne, prenom) VALUES (NULL,'Alex');</code> ou <code>INSERT INTO abonne VALUES (NULL, 'Eloise');</code></li>
+                    </ul>
 
-                            <tr>
-                                <td><code>SELECT CONCAT_WS('-', 'a', 'b', 'c')</code></td>
-                                <td>WS (with separator) : utile pour concaténer un code postal avec ne ville</td>
-                            </tr>
+                    <li>EXO 5 Affichez le prénom des abonnés avec l'id des livres empruntés <code> SELECT a.prenom, e.id_livre FROM abonne a, emprunt e WHERE a.id_abonne=e.id_abonne ORDER BY prenom; </code></li>
 
-                            <tr>
-                                <td><code>SELECT TRIM(' coucou')</code></td>
-                                <td>Supprime les espaces en début et en fin de chaîne</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- fin tableau -->
                 </div>
-                <!-- fin col -->
-            </div>
-            <!-- fin row -->
 
-        </section>
+                <div class="col-12">
+
+                    <h2 class="text-center"> d) Exemples avec jointures externes</h2>
+                    <ul>
+
+                        <li>Grâce à LEFT JOIN ou RIGHT JOIN = nous allons rapatrier les résultats sans correspondance obligatoire . La condition se fait grâce au mot clef ON et non plus WHERE dans le cas d'une requête de type externe.</li>
+                        <li> Afficher le prénom des abonnés avec l'id des livres empruntés: <code> SELECT abonne.prenom, emprunt.id_livre FROM abonne LEFT JOIN emprunt ON abonne.id_abonne =emprunt.id_abonne; </code> <code>  SELECT abonne.prenom, emprunt.id_livre FROM abonne LEFT JOIN emprunt ON abonne.id_abonne =emprunt.id_abonne ORDER BY prenom;</code></li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+
+
+        </div>
         <!-- fin container -->
     </main>
     <!-- FIN MAIN -->
