@@ -249,6 +249,96 @@
               (26, 15, 5961),
               (27, 30, 5963),
               (28, 56, 5964);</code></li>
+            <li>Insertion de la table personne <code> INSERT INTO personne (idPersonne, prenom) VALUES
+                (1, 'william'),
+                (2, 'gaetan'),
+                (3, 'mehdi'),
+                (4, 'charles'),
+                (5, 'brigitte'),
+                (6, 'sarah'),
+                (7, 'lucas'),
+                (8, 'quentin'),
+                (9, 'patrick'),
+                (10, 'emmanuel'),
+                (11, 'elodie'),
+                (12, 'agathe'),
+                (13, 'valentine'),
+                (14, 'charlotte'),
+                (15, 'alice'),
+                (16, 'samuel'),
+                (17, 'mathieu'),
+                (18, 'noemie'),
+                (19, 'simon'),
+                (20, 'florian'),
+                (21, 'clement'),
+                (22, 'yvon'),
+                (23, 'lea'),
+                (24, 'chloe'),
+                (25, 'camille'),
+                (26, 'alexandre'),
+                (27, 'julie'),
+                (28, 'leo'),
+                (29, 'antoine'),
+                (30, 'lola'),
+                (31, 'celia'),
+                (32, 'anna'),
+                (33, 'caroline'),
+                (34, 'adele'),
+                (35, 'sabrina'),
+                (36, 'nathalie'),
+                (37, 'franck'),
+                (38, 'tom'),
+                (39, 'johan'),
+                (40, 'priscillia'),
+                (41, 'assia'),
+                (42, 'nathan'),
+                (43, 'aurore'),
+                (44, 'marie'),
+                (45, 'oceane'),
+                (46, 'enzo'),
+                (47, 'ines'),
+                (48, 'hugo'),
+                (49, 'jonathan'),
+                (50, 'axelle'),
+                (51, 'morgane'),
+                (52, 'melissa'),
+                (53, 'kevin'),
+                (54, 'ophelie'),
+                (55, 'victoria'),
+                (56, 'alexis'),
+                (57, 'robin');</code></li>
+            </div>
+
+            <div class="col-12 col-md-6"></div>
+
+            <h2 class="text-center"> 2- Questions sur la BDD</h2>
+
+            <ol>
+                <li>Afficher le nom des agences <code>SELECT nom FROM agence;</code> </li>
+                <li>Afficher l'id de l'agence "Orpi" <code>SELECT idAgence FROM agence WHERE nom='orpi';</code></li>
+                <li>Affiche le premier enregistrement de la table logement <code>SELECT * FROM logement ORDER BY idlogement ASC LIMIT 0,1;</code></li>
+                <li>Compter le nombre de logements <code>SELECT COUNT(*)FROM logement;</code></li>
+                <li>Afficher les logements à vendre qui coûte moins de 150 000 euros dans l'ordre croissant des prix <code>SELECT * FROM logement WHERE categorie='vente' AND prix &lt; 150000 ORDER BY prix ASC;</code></li>
+                <li>Compter le nombre de logement disponible en location et donner à la colonne l'alias 'logement location' <code>SELECT COUNT(idlogement) AS logement_location FROM logement WHERE categorie='location';</code></li>
+                <li>Afficher les villes différentes par les personnes demandeuses d'un logement <code> SELECT ville FROM demande GROUP BY ville;</code> ou <code>SELECT DISTINCT ville FROM demande; </code></li>
+                <li>Afficher le nombre de bien à vendre par ville <code>  SELECT COUNT(idLogement) AS 'nombre de logements', ville FROM logement WHERE ville IN (SELECT DISTINCT(ville) FROM logement)AND categorie='vente' GROUP BY ville; </code> </li>
+                <li>Afficher l'id des logements destinés à la location <code>  SELECT  idlogement FROM logement WHERE categorie LIKE'location%';</code> </li>
+                <li>Afficher l'id des logements dont la superficie est entre 20m2 et 30m2 <code>SELECT idlogement  FROM logement WHERE superficie BETWEEN '20' AND '30'; </code> </li>
+
+                <li> Quel est le prix vendeur (hors comission) du logement le moins cher à vendre? <code>SELECT MIN(prix), categorie FROM logement WHERE categorie='vente';</code></li>
+
+                <li> L'agence Orpi souhaite diminuer les frais qu'elle applique sur le logement ayant l'id '5246'.Passez les frais de ce logement de 800 à 730 euros .</li>
+                <li>Quek est l'id des logements gérés par l'agence '=laforet' ?</li>
+                <li>Afficher le nom de proprietaire de Paris avec l'alias 'proprio parisien'</li>
+                <li> Affichez toutes les informations sur les trois premières personnes souhaitant acheter un logement.</li>
+                <li> afficher le prénom du vendeur pour le logement ayant l'id '5770'</li>
+                <li>Afficher le prénom des personnes souhaitant avoir un logement sur lyon </li>
+                <li>Afficher les prénoms des personnes souhaitant accéder à un logement en location à Paris </li>
+                <li>Afficher les prénoms des personne souhaitant acheter un logement de la plus grande à la plus petite superficie</li>
+                <li>Quesls sont les prix finaux proposés par les agences pour la maison à la vente ayant la référence '5091'?(indice prix + frais d'agence.</li>
+
+
+            </ol>
 
 
 
