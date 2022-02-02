@@ -77,6 +77,65 @@
         <!-- fin container MAIN -->
         <section class="container mb-4 p-4 bg-light col-9">
 
+            <li>Création de la BDD immobilier : <code> CREATE DATABASE immobilier CHARACTER SET 'utf8';</code> </li>
+            <li>On pense bien à choisir la base de donnée BDD que l'on veut utiliser en faisant <code>USE  nombdd;</code> </li>
+            <li>Creation de la table agence : <code> CREATE TABLE IF NOT EXISTS agence (idAgence int(6) NOT NULL AUTO_INCREMENT, nom varchar (100) NOT NULL, adresse varchar (100) NOT NULL, PRIMARY KEY (idAgence)) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code>                </li>
+            <li> Création de la table demande : <code>CREATE TABLE IF NOT EXISTS demande (idDemande int(5) NOT NULL AUTO_INCREMENT, idPersonne int(3) NOT NULL, genre varchar(100) NOT NULL, ville varchar(100) NOT NULL, budget int(7) NOT NULL, superficie int(5) NOT NULL, categorie varchar(100) NOT NULL, PRIMARY KEY (idDemande), KEY idPersonne (idPersonne)) ENGINE=InnoDB DEFAULT CHARSET=latin1; </code>                </li>
+            <li>Création de la table logement : <code>CREATE TABLE IF NOT EXISTS logement (idLogement int(4) NOT NULL AUTO_INCREMENT, genre varchar(100) NOT NULL, ville varchar(100) NOT NULL, prix int(7) NOT NULL, superficie int(5) NOT NULL, categorie varchar(100) NOT NULL, PRIMARY KEY (idLogement)) ENGINE=InnoDB DEFAULT CHARSET=latin1; </code>                </li>
+            <li>Création de la table de logement_agence : <code> CREATE TABLE IF NOT EXISTS logement_agence (idLogementAgence int(5) NOT NULL AUTO_INCREMENT, idAgence int(6) NOT NULL, idLogement int(4) NOT NULL, frais int(7) NOT NULL, PRIMARY KEY (idLogementAgence), KEY idAgence (idAgence), KEY idLogement (idLogement)) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;</code>                </li>
+            <li>Création de la table logement_personne : <code> CREATE TABLE IF NOT EXISTS logement_personne (idLogementPersonne int(5) NOT NULL AUTO_INCREMENT, idPersonne int(3) NOT NULL, idLogement int(4) NOT NULL, PRIMARY KEY (idLogementPersonne), UNIQUE KEY idLogement (idLogement), KEY idPersonne (idPersonne)) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code>                </li>
+
+            <li>Création de la table personne : <code> CREATE TABLE IF NOT EXISTS personne (idPersonne int(3) NOT NULL AUTO_INCREMENT, prenom varchar(100) NOT NULL, PRIMARY KEY (idPersonne)) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code> </li>
+            <li> Création des clefs étragères (FOREIGN KEY = FK): <code>ALTER TABLE logement_agence ADD CONSTRAINT logement_agence_ibfk_2 FOREIGN KEY (idLogement) REFERENCES logement (idLogement), ADD CONSTRAINT logement_agence_ibfk_1 FOREIGN KEY (idAgence) REFERENCES agence (idAgence); </code></li>
+
+            <li>Insertion des données dans la table agence <code>INSERT INTO agence (idAgence, nom, adresse) VALUES
+    (257400, 'logic-immo', 'rue logic'),
+    (383505, 'century21', 'rue century'),
+    (504585, 'laforet', 'rue laforet'),
+    (544688, 'fnaim', 'rue fnaim'),
+    (608870, 'orpi', 'rue orpi'),
+    (654178, 'foncia', 'rue foncia'),
+    (654658, 'guy-hoquet', 'rue guy-hoquet'),
+    (654893, 'seloger', 'rue seloger'),
+    (692702, 'bouygues immobilier', 'rue bouygues');</code></li>
+
+
+            <li>Insertion des données dans la tables demande <code>INSERT INTO demande (idDemande, idPersonne, genre, ville, budget, superficie, categorie) VALUES
+    (1, 1, 'appartement', 'paris', 530000, 120, 'vente'),
+    (2, 3, 'appartement', 'bordeaux', 120000, 18, 'vente'),
+    (3, 4, 'appartement', 'bordeaux', 145000, 21, 'vente'),
+    (4, 5, 'appartement', 'bordeaux', 152000, 26, 'vente'),
+    (5, 6, 'appartement', 'lyon', 200000, 55, 'vente'),
+    (6, 7, 'appartement', 'paris', 400000, 55, 'vente'),
+    (7, 9, 'appartement', 'paris', 171000, 40, 'vente'),
+    (8, 13, 'appartement', 'paris', 163000, 25, 'vente'),
+    (9, 16, 'appartement', 'paris', 132000, 15, 'vente'),
+    (10, 19, 'appartement', 'paris', 350000, 80, 'vente'),
+    (11, 22, 'appartement', 'lyon', 600, 20, 'location'),
+    (12, 25, 'appartement', 'lyon', 188000, 65, 'vente'),
+    (13, 27, 'appartement', 'paris', 400, 15, 'location'),
+    (14, 28, 'appartement', 'paris', 330500, 100, 'vente'),
+    (15, 31, 'appartement', 'paris', 90000, 15, 'vente'),
+    (16, 32, 'appartement', 'lyon', 123800, 21, 'vente'),
+    (17, 35, 'appartement', 'lyon', 1200, 70, 'vente'),
+    (18, 37, 'appartement', 'lyon', 1500, 100, 'vente'),
+    (19, 43, 'appartement', 'paris', 600, 20, 'location'),
+    (20, 44, 'appartement', 'paris', 750, 30, 'location'),
+    (21, 45, 'appartement', 'bordeaux', 680, 30, 'location'),
+    (22, 46, 'appartement', 'bordeaux', 213000, 40, 'vente'),
+    (23, 47, 'appartement', 'bordeaux', 700, 45, 'location'),
+    (24, 48, 'appartement', 'paris', 195000, 40, 'vente'),
+    (25, 49, 'appartement', 'paris', 250000, 60, 'vente'),
+    (26, 50, 'appartement', 'lyon', 110000, 12, 'vente'),
+    (27, 51, 'appartement', 'lyon', 500, 17, 'location'),
+    (28, 52, 'appartement', 'paris', 800, 40, 'location'),
+    (29, 53, 'appartement', 'paris', 850, 50, 'location'),
+    (30, 54, 'appartement', 'paris', 177000, 40, 'vente'),
+    (31, 55, 'appartement', 'paris', 630, 20, 'location');</code></li>
+
+            </ul>
+
+
         </section>
         <!-- fin container MAIN -->
     </main>
