@@ -1,0 +1,26 @@
+<ol></ol>
+<li> Dans quelle ville se trouve une maison à vendre? <code>SELECT DISTINCT (ville) FROM logement WHERE genre='maison' AND categorie='vente'; </code></li>
+
+<li> L'agence Orpi souhaite diminuer les frais qu'elle applique sur le logement ayant l'id '5246'.Passez les frais de ce logement de 800 à 730 euros <code>UPDATE logement_agence SET frais=730 WHERE idLogement=5246 AND idagence=(SELECT idAgence FROM agence WHERE nom='orpi');</code>    ou <code> UPDATE logement_agence SET frais=730 WHERE idLogement=5246 ;</code>.</li>
+
+<li>Quel est l'id des logements gérés par l'agence '=laforet' ? <code>SELECT  idLogement FROM Logement_agence WHERE idagence='504585';  résultat: 5378|5723 | 5961</code> <code> SELECT * FROM logement_agence WHERE idAgence=(SELECT idAgence FROM agence WHERE nom='laforet');</code></li>
+
+<li>Afficher le nombre de proprietaire de Paris avec l'alias 'proprio parisien' <code>SELECT COUNT(DISTINCT(lp.idPersonne)) AS 'proprio_parisien' FROM logement_personne lp, logement l WHERE lp.idLogement= l.idLogement AND ville = 'Paris'; </code> ou SELECT
+    COUNT(DISTINCT(idPersonne)) AS 'proprios parisiens' FROM logement_personne WHERE idLogement IN (SELECT idLogement FROM logement WHERE ville = 'Paris');</li>
+
+<li> Affichez toutes les informations sur les trois premières personnes souhaitant acheter un logement.<code> SELECT * FROM personne p, demande d WHERE p.idPersonne =d.idPersonne and d.categorie = 'vente'ORDER BY idDemande  ASC LIMIT 0,3;</code> ou <code>  SELECT * FROM personne WHERE idPersonne IN (SELECT idPersonne FROM demande WHERE categorie='vente') LIMIT 0,3;  </code></li>
+
+<li> Afficher le prénom du vendeur pour le logement ayant l'id '5770' <code> SELECT prenom FROM personne WHERE idPersonne IN (SELECT idPersonne FROM logement_personne WHERE idLogement='5770');
+     </code> <code> ou SELECT p.prenom lp.logement FROM personnep, logement_personne lp WHERE p.idPersonne=lp.idPersonne AND idLogement='5770';</code> ou <code>SELECT p.prenom, lp.idLogement FROM personne p, logement_personne lp WHERE p.idPersonne = lp.idPersonne AND lp.idLogement=5770;</code></li>
+
+<li>Afficher le prénom des personnes souhaitant avoir un logement sur lyon <code> </code> SELECT p.prenom FROM personne p, demande d WHERE p.idPersonne = d.idPersonne AND ville='Lyon'; </li>
+
+
+<li>Afficher les prénoms des personnes souhaitant accéder à un logement en location à Paris <code> SELECT prenom FROM personne WHERE idPersonne IN (SELECT idPersonne FROM demande WHERE categorie='location' AND ville='Paris'); </code> ou SELECT p.personne
+    FROM personne p, demande d WHERE p.idPersonne = d.idPersonne AND d.categorie </li>
+
+
+<li>Afficher les prénoms des personne souhaitant acheter un logement de la plus grande à la plus petite superficie <code>SELECT personne.prenom, demande.superficie FROM personne, demande WHERE personne.idPersonne = demande.idPersonne AND categorie= 'vente' ORDER BY demande.superficie DESC; </code></li>
+
+<li>Quels sont les prix finaux proposés par les agences pour la maison à la vente ayant la référence '5091'?(indice prix + frais d'agence). <code> SELECT a.nom, (la.frais+l.prix) AS "prix frais d'agence compris" FROM agence a, logement_agence la, logement l WHERE a.idAgence = la.idAgence AND l.idLogement = la.idLogement AND la.idLogement = 5091; </code>    </li>
+</ol>
