@@ -23,4 +23,23 @@
 <li>Afficher les prénoms des personne souhaitant acheter un logement de la plus grande à la plus petite superficie <code>SELECT personne.prenom, demande.superficie FROM personne, demande WHERE personne.idPersonne = demande.idPersonne AND categorie= 'vente' ORDER BY demande.superficie DESC; </code></li>
 
 <li>Quels sont les prix finaux proposés par les agences pour la maison à la vente ayant la référence '5091'?(indice prix + frais d'agence). <code> SELECT a.nom, (la.frais+l.prix) AS "prix frais d'agence compris" FROM agence a, logement_agence la, logement l WHERE a.idAgence = la.idAgence AND l.idLogement = la.idLogement AND la.idLogement = 5091; </code>    </li>
+
+<li>
+    Si l'ensemble des logements étaient vendus ou loués demain, quel derait le benefice généré grâce aux frais d'agence et pour chaque agence (Alias : benefice // classement : par ordre croissant des gains) <code> SELECT agence.nom, SUM(logement_agence.frais) AS 'bénéfices' FROM agence, logement_agence WHERE agence.idAgence = logement_agence.idAgence GROUP BY agence.idAgence ORDER BY bénéfices ASC;</code>
+</li>
+
+<li>Affichez les id des biens en location, les prix, suivis des frais d'agence (classement : dans l'ordre croissant des prix) <code>SELECT logement.idLogement, logement.prix, logement_agence.frais FROM logement, logement_agence  WHERE logement.idLogement = logement_agence.idLogement AND logement.categorie = 'location' ORDER BY logement.prix ASC</code></code>
+</li>
+
+<li>Quel est le prénom du proprietaire proposant le logement le moins cher à louer ?<code>SELECT personne.prenom FROM logement, personne, logement_personne WHERE personne.idPersonne = logement_personne.idPersonne AND logement.idLogement = logement_personne.idLogement AND categorie='location' ORDER BY logement.prix ASC LIMIT 0,1;</code></li>
+
+<li>Afficher le prénom et la ville ou se trouve le logement de chaque proprietaire <code>SELECT p.prenom, l.ville FROM logement l, personne p, logement_personne lp WHERE p.idPersonne = lp.idPersonne AND l.idLogement = lp.idLogement AND l.categorie='vente';</code></li>
+
+<li>Quel est l'agence qui s'occupe du plus de logement à Paris ? (alias 'nbr logements parisiens' // classement : ordre décroissant de la colonne que l'on a généré) <code>SELECT a.nom, COUNT(l.ville) AS 'nbr_logements_parisiens' FROM agence a, logement l, logement_agence la WHERE la.idAgence = a.idAgence AND la.idLogement = l.idLogement AND l.ville='Paris' GROUP BY a.nom ORDER BY nbr_logements_parisiens DESC LIMIT 0,1;</code></li>
+
+<li>
+    Afficher le prix et le prénon des vendeurs dont les logements sont proposés à 130000 € ou moins en pris final avec frais appliqués par les agences (alias 'prix final' // classement : ordre croissant de la colonne générée) <code>SELECT p.prenom, l.prix+la.frais AS 'prix_final' FROM personne p, logement l, logement_agence la, logement_personne lp WHERE p.idPersonne = lp.idPersonne AND l.idLogement = la.idLogement AND l.idLogement = lp.idLogement AND lp.idLogement = la.idLogement AND l.prix+la.frais <= 130000 AND categorie='vente' ORDER BY prix_final ASC;</code>
+</li>
+
+<li>Afficher le nombre de logements à la vente dans la ville de recherche de 'HUGO' (alias : 'nbr de logements')<code>SELECT COUNT(logement.idLogement) AS 'nbr de logements' FROM personne, demande, logement WHERE personne.idPersonne = demande.idPersonne AND personne.prenom = 'hugo' AND logement.categorie = 'vente' AND demande.ville = logement.ville;</code><code>SELECT COUNT(l.idLogement) AS 'nbr_de_logements' FROM logement l, personne p, demande d WHERE l.ville = d.ville AND p.idPersonne = d.idPersonne AND prenom='hugo' AND l.categorie='vente';</code></li>
 </ol>
